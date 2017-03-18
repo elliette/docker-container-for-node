@@ -1,9 +1,5 @@
 'use strict';
 var retry = require('retry');
-const express = require('express');
-var models = require('./models');
-var Sandcastle = models.Sandcastle;
-var db = models.db; 
 var pg = require('pg')
 
 var operation = retry.operation({retries:3}); 
