@@ -1,4 +1,3 @@
-#ordering of db vs node running - figure out
 db:
   image: postgres
   ports:
@@ -6,7 +5,7 @@ db:
   environment:
     POSTGRES_USER: username
     POSTGRES_PASSWORD: pgpassword
-    POSTGRES_DB: wikistack
+    POSTGRES_DB: docker-test
 wikistack:
   build: .
   ports:
@@ -14,8 +13,8 @@ wikistack:
   links:
     - db
   environment:
-    SEQ_DB: wikistack
+    SEQ_DB: docker-test
     SEQ_USER: username
     SEQ_PW: pgpassword
     PORT: 8080
-    DATABASE_URL: postgres://username:pgpassword@db:5432/wikistack
+    DATABASE_URL: postgres://username:pgpassword@db:5432/docker-test
